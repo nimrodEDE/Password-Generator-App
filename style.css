@@ -144,11 +144,11 @@ input[type="checkbox"]:checked {
   border: none;
 }
 
-li img {
+li svg {
   z-index: 1;
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: 0.313rem;
+  left: 0.313rem;
   pointer-events: none;
 }
 
@@ -208,6 +208,7 @@ button {
   text-transform: uppercase;
   background-color: var(--color-mint-green);
   transition: background-color 0.1s, border-color 0.3s;
+  color: var(--color-black);
 }
 
 button img {
