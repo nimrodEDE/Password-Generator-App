@@ -52,13 +52,37 @@ const checkBox = () => {
     }
   });
 
-  for (let i = 0; i < blocks.length; i++) {
-    blocks[i].classList.remove("pressed");
+  let colorChange;
+
+  // Use a switch statement to handle different strength values
+  switch (strength) {
+    case 1:
+      colorChange = "var(--color-red)";
+      break;
+    case 2:
+      colorChange = "var(--color-orange)";
+      break;
+    case 3:
+      colorChange = "var(--color-yellow)";
+      break;
+    case 4:
+      colorChange = "var(--color-mint-green)";
+      break;
+    default:
+      colorChange = "var(--color-dark-blue)"; // Fallback color if strength is outside expected range
   }
 
-  for (let i = 0; i < strength; i++) {
-    blocks[i].classList.add("pressed");
-  }
+  // Reset the blocks' styles and classes
+  blocks.forEach((block, index) => {
+    block.style.background = "var(--color-dark-blue)";
+    block.classList.remove("pressed");
+
+    // If index is less than strength, apply the new color and 'pressed' class
+    if (index < strength) {
+      block.style.background = colorChange;
+      block.classList.add("pressed");
+    }
+  });
 
   const ratings = ["weak", "fair", "medium", "strong"];
   rating.innerHTML += `${ratings[strength - 1] || "bad"}`;
